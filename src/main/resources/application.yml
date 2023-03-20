@@ -1,0 +1,10 @@
+mongock:
+  migration-scan-package:
+    - rc.personal.app.config
+  transactionEnabled: true
+
+
+
+
+
+
