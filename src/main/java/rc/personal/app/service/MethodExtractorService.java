@@ -33,6 +33,7 @@ public class MethodExtractorService {
     String OWNER = "RCshare";
     String REPO = "back1";
     String PATH = "src";
+    String BRANCH = "springSecurity";
 
 
     public static List<File> getJavaFilesFromContent(String content) {
@@ -61,11 +62,11 @@ public class MethodExtractorService {
     public List<Method> extractMethodsFromDirectory() throws IOException {
         GitHub github = new GitHubBuilder().withOAuthToken(TOKEN).build();
         List<Method> methods = new ArrayList<>();
-        getMethodsFromContentOrDirectory(github, OWNER, REPO, PATH, methods);
+        getMethodsFromContentOrDirectory(github, OWNER, BRANCH, REPO, PATH, methods);
         return methods;
     }
-    public static void getMethodsFromContentOrDirectory(GitHub github, String owner, String repo, String path, List<Method> methods) throws IOException {
-        List<GHContent> contentList = github.getRepository(owner + '/' + repo).getDirectoryContent(path);
+    public static void getMethodsFromContentOrDirectory(GitHub github, String owner, String branch, String repo, String path, List<Method> methods) throws IOException {
+        List<GHContent> contentList = github.getRepository(owner + '/' + repo).getDirectoryContent(path,branch);
 
         for (GHContent content : contentList) {
             if ("file".equals(content.getType()) && content.getName().endsWith(".java")) {
@@ -74,7 +75,7 @@ public class MethodExtractorService {
                 methods.addAll(fileMethods);
             } else if ("dir".equals(content.getType())) {
                 String dirPath = path + "/" + content.getName();
-                getMethodsFromContentOrDirectory(github, owner, repo, dirPath, methods);
+                getMethodsFromContentOrDirectory(github, owner, branch, repo, dirPath, methods);
             }
         }
     }
