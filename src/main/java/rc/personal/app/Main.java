@@ -18,8 +18,7 @@ public class Main implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String filePath = "src/main/java/rc/personal/app/toread/";
-        methodExtractorService.printExtractedMethods(methodExtractorService.extractMethodsFromDirectory(filePath));
+        methodExtractorService.printExtractedMethods(methodExtractorService.extractMethodsFromDirectory());
         if (args.length == 0) {
             System.err.println("Usage: java -jar method-extractor.jar <directory>");
             return;
