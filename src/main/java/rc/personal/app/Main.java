@@ -1,14 +1,10 @@
-package rc.personal.extractor;
+package rc.personal.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import rc.personal.extractor.service.MethodExtractorService;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
+import rc.personal.app.service.MethodExtractorService;
 
 @SpringBootApplication
 public class Main implements CommandLineRunner {
@@ -22,11 +18,11 @@ public class Main implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        String filePath = "src/main/java/rc/personal/app/toread/";
+        methodExtractorService.printExtractedMethods(methodExtractorService.extractMethodsFromDirectory(filePath));
         if (args.length == 0) {
             System.err.println("Usage: java -jar method-extractor.jar <directory>");
             return;
         }
-        //String directoryPath = args[0];
-        //methodExtractorService.extractMethodsFromDirectory(directoryPath);
     }
 }

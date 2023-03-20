@@ -1,4 +1,4 @@
-package rc.personal.extractor.service;
+package rc.personal.app.service;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,15 +7,37 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.github.javaparser.JavaParser;
-import com.github.javaparser.ParseException;
 import com.github.javaparser.ParseResult;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import org.springframework.stereotype.Service;
-import rc.personal.extractor.model.Method;
+import rc.personal.app.model.Method;
+import org.apache.commons.text.RandomStringGenerator;
 
 @Service
 public class MethodExtractorService {
+
+    private static final RandomStringGenerator NAME_GENERATOR = new RandomStringGenerator.Builder()
+            .withinRange('a', 'z').build();
+
+    private String anonymizeName(String name) {
+        if (name == null) {
+            return null;
+        }
+        String anonymizedName = NAME_GENERATOR.generate(10);
+        return name.replaceAll("\\b" + name + "\\b", anonymizedName);
+    }
+
+    private String anonymizeCode(String code) {
+        if (code == null) {
+            return null;
+        }
+        String anonymizedCode = code;
+        anonymizedCode = anonymizedCode.replaceAll("\\bclass\\s+" + "\\w+\\b", "class " + NAME_GENERATOR.generate(10));
+        anonymizedCode = anonymizedCode.replaceAll("\\bnew\\s+" + "\\w+\\b", "new " + NAME_GENERATOR.generate(10));
+        anonymizedCode = anonymizedCode.replaceAll("\\b\\w+\\s+" + "\\w+\\s*\\(", anonymizeName("$0") + "(");
+        return anonymizedCode;
+    }
 
     public List<Method> extractMethodsFromDirectory(String directoryPath) throws IOException {
         List<File> javaFiles = getJavaFilesFromDirectory(directoryPath);
@@ -27,13 +49,21 @@ public class MethodExtractorService {
             }
             List<MethodDeclaration> methodDeclarations = getMethodDeclarations(cu);
             for (MethodDeclaration methodDeclaration : methodDeclarations) {
-                String methodName = methodDeclaration.getName().toString();
-                String methodCode = methodDeclaration.toString();
+                String methodName = anonymizeName(methodDeclaration.getName().toString());
+                String methodCode = anonymizeCode(methodDeclaration.toString());
                 Method method = new Method(methodName, methodCode);
                 methods.add(method);
             }
         }
         return methods;
+    }
+    public void printExtractedMethods(List<Method> methods) {
+        System.out.println("List of extracted methods:");
+        for (Method method : methods) {
+            System.out.println("Method name: " + method.getName());
+            System.out.println("Method code: " + method.getCode());
+            System.out.println();
+        }
     }
 
     private List<File> getJavaFilesFromDirectory(String directoryPath) {

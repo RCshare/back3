@@ -1,4 +1,4 @@
-package rc.personal.extractor.model;
+package rc.personal.app.model;
 
 public class Method {
     private String name;
