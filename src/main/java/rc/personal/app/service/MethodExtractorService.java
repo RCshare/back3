@@ -29,35 +29,12 @@ import org.kohsuke.github.GHContent;
 public class MethodExtractorService {
     Map<String, List<Method>> methodsByFile = new HashMap<>();
 
-    String TOKEN = "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";
+    String TOKEN = "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";
     String OWNER = "RCshare";
     String REPO = "back1";
     String PATH = "src";
     String BRANCH = "springSecurity";
 
-
-    public static List<File> getJavaFilesFromContent(String content) {
-        List<File> javaFiles = new ArrayList<>();
-        String[] lines = content.split("\\r?\\n");
-        for (String line : lines) {
-            if (line.trim().endsWith(".java")) {
-                String[] parts = line.trim().split("/");
-                String fileName = parts[parts.length - 1];
-                String filePath = fileName;
-                for (int i = parts.length - 2; i >= 0; i--) {
-                    filePath = parts[i] + File.separator + filePath;
-                }
-                try {
-                    File tempFile = File.createTempFile("temp", ".java");
-                    Files.write(Paths.get(tempFile.getPath()), line.getBytes());
-                    javaFiles.add(tempFile);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return javaFiles;
-    }
 
     public List<Method> extractMethodsFromDirectory() throws IOException {
         GitHub github = new GitHubBuilder().withOAuthToken(TOKEN).build();
@@ -65,7 +42,7 @@ public class MethodExtractorService {
         getMethodsFromContentOrDirectory(github, OWNER, BRANCH, REPO, PATH, methods);
         return methods;
     }
-    public static void getMethodsFromContentOrDirectory(GitHub github, String owner, String branch, String repo, String path, List<Method> methods) throws IOException {
+    public void getMethodsFromContentOrDirectory(GitHub github, String owner, String branch, String repo, String path, List<Method> methods) throws IOException {
         List<GHContent> contentList = github.getRepository(owner + '/' + repo).getDirectoryContent(path,branch);
 
         for (GHContent content : contentList) {
@@ -79,7 +56,7 @@ public class MethodExtractorService {
             }
         }
     }
-    public static List<Method> extractMethodsFromJavaFileContent(String javaFileContent, String javaFileName) {
+    public List<Method> extractMethodsFromJavaFileContent(String javaFileContent, String javaFileName) {
         List<Method> methods = new ArrayList<>();
         CompilationUnit cu = parseJavaFileContent(javaFileContent);
         if (cu == null) {
@@ -94,7 +71,7 @@ public class MethodExtractorService {
         }
         return methods;
     }
-    public static CompilationUnit parseJavaFileContent(String javaFileContent) {
+    public CompilationUnit parseJavaFileContent(String javaFileContent) {
         try {
             ByteArrayInputStream in = new ByteArrayInputStream(javaFileContent.getBytes());
             JavaParser parser = new JavaParser();
@@ -105,48 +82,6 @@ public class MethodExtractorService {
             return null;
         }
     }
-    //public List<Method> extractMethodsFromDirectory() throws IOException {
-//
-    //    GitHub github = new GitHubBuilder().withOAuthToken(TOKEN).build();
-    //    List<GHContent> contentList = github.getRepository(OWNER+'/'+REPO).getDirectoryContent(PATH);
-    //    for (GHContent content : contentList) {
-    //        if ("file".equals(content.getType()) && content.getName().endsWith(".java")) {
-    //            String fileContent = new String(Base64.getDecoder().decode(content.getContent()), StandardCharsets.UTF_8);
-    //            try {
-    //                File tempFile = File.createTempFile("temp", ".java");
-    //                Files.write(Paths.get(tempFile.getPath()), fileContent.getBytes());
-    //                javaFiles.add(tempFile);
-    //            } catch (IOException e) {
-    //                e.printStackTrace();
-    //            }
-    //        }
-//
-    //    }
-//
-    //    GHContent content = github.getRepository(OWNER+'/'+REPO).getFileContent(PATH);
-//
-    //    String fileContent = new String(Base64.getDecoder().decode(content.getContent()), StandardCharsets.UTF_8);
-    //    List<File> javaFiles = getJavaFilesFromContent(fileContent);
-//
-    //    //List<File> javaFiles = getJavaFilesFromDirectory(directoryPath);
-    //    List<Method> methods = new ArrayList<>();
-    //    for (File file : javaFiles) {
-    //        CompilationUnit cu = parseJavaFile(file);
-    //        if (cu == null) {
-    //            continue;
-    //        }
-    //        String fileName = file.getName();
-    //        List<MethodDeclaration> methodDeclarations = getMethodDeclarations(cu);
-    //        for (MethodDeclaration methodDeclaration : methodDeclarations) {
-    //            String methodName = methodDeclaration.getName().toString();
-    //            String methodCode = methodDeclaration.toString();
-    //            Method method = new Method(methodName, methodCode, fileName);
-    //            methods.add(method);
-    //        }
-    //    }
-    //    return methods;
-    //}
-
 
     public void printExtractedMethods(List<Method> methods) {
         System.out.println("List of extracted methods:");
@@ -158,37 +93,6 @@ public class MethodExtractorService {
             System.out.println();
         }
     }
-
-
-    private List<File> getJavaFilesFromDirectory(String directoryPath) {
-        File directory = new File(directoryPath);
-        if (!directory.isDirectory()) {
-            throw new IllegalArgumentException("Provided path is not a directory");
-        }
-        List<File> javaFiles = new ArrayList<>();
-        for (File file : directory.listFiles()) {
-            if (file.isFile() && file.getName().endsWith(".java")) {
-                javaFiles.add(file);
-            } else if (file.isDirectory()) {
-                javaFiles.addAll(getJavaFilesFromDirectory(file.getAbsolutePath()));
-            }
-        }
-        return javaFiles;
-    }
-
-    private CompilationUnit parseJavaFile(File file) throws IOException {
-        try {
-            JavaParser javaParser = new JavaParser();
-            ParseResult<CompilationUnit> parseResult = javaParser.parse(file);
-            return parseResult.getResult().orElse(null);
-        } catch (IOException e) {
-            System.err.println("Error reading file " + file.getName());
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-
 
     private static List<MethodDeclaration> getMethodDeclarations(CompilationUnit cu) {
         return cu.getTypes().stream()
