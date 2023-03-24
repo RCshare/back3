@@ -5,9 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b5ff347-e810-4dd8-b292-e9898c061fa5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/auth/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/auth/AuthenticationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/auth/AuthenticationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/auth/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/auth/RegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/config/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/config/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/config/LogoutService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/config/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/entity/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/repository/TokenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/util/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/util/TokenType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/DTO/MethodNodeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/DTO/MethodNodeDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/controller/MethodController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/controller/MethodController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodExtractorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodExtractorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,20 +55,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/r.caussignac/Desktop/Serveur3/back3&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/rc/Documents/work/back3/src/main/java/rc/personal/app"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="rc.personal.app.toread" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\rc\Documents\work\back3\src\main" />
+      <recent name="C:\Users\rc\Documents\work\back3\src\main\java\rc\personal\app" />
+      <recent name="C:\Users\rc\Documents\work\back3\src\main\java\rc\personal\app\entity" />
+      <recent name="C:\Users\rc\Documents\work\back3\src\main\java\rc\personal\app\repository" />
+      <recent name="C:\Users\rc\Documents\work\back3\src\main\java\rc\personal\app\config" />
+      <recent name="C:\Users\rc\Documents\work\back3\src\main\java\rc\personal\app\auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rc\Documents\work\back3\src\main\java\rc\personal\app\toread" />
@@ -105,6 +130,11 @@
           <url>jar://$MAVEN_REPOSITORY$/org/kohsuke/github-api/1.314/github-api-1.314.jar!/org/kohsuke/github/GHContent.class</url>
           <line>94</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodService.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
