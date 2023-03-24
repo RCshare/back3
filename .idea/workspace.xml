@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b5ff347-e810-4dd8-b292-e9898c061fa5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/DTO/MethodNodeDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/DTO/MethodNodeDTOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/controller/MethodController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/mapper/MethodMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/repository/MethodRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/repository/MethodRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/GithubFileFetcherService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodExtractorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodExtractorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/controller/MethodController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/controller/MethodController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,14 +34,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/r.caussignac/Desktop/Serveur3/back3"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/r.caussignac/Desktop/Serveur3/back3&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="rc.personal.app.toread" />

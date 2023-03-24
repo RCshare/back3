@@ -18,6 +18,7 @@ public class MethodController {
     @Autowired
     private MethodService methodService;
 
+    @CrossOrigin
     @GetMapping("")
     public ResponseEntity<List<MethodNodeDTO>> getAllMethods() {
         List<MethodNodeDTO> methods = methodService.getAllMethods();
