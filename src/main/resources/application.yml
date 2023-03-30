@@ -1,9 +1,12 @@
-mongock:
-  migration-scan-package:
-    - rc.personal.app.config
-  transactionEnabled: true
-
-
+spring:
+  application:
+    name: service-method
+server:
+  port: 8082
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
 
 
 

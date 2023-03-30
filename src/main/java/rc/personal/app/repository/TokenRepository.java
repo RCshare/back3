@@ -3,7 +3,7 @@ package rc.personal.app.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.jpa.repository.Query;
 import rc.personal.app.entity.Token;
 
 import java.util.List;

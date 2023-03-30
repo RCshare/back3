@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import rc.personal.app.controller.MethodController;
-import rc.personal.app.model.Method;
-import rc.personal.app.repository.MethodRepository;
-import rc.personal.app.service.MethodExtractorService;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import rc.personal.app.service.MethodService;
 
 @SpringBootApplication
+//@EnableDiscoveryClient
 public class Main implements CommandLineRunner {
 
     @Autowired
@@ -29,7 +28,5 @@ public class Main implements CommandLineRunner {
             System.err.println("Usage: java -jar method-extractor.jar <directory>");
             return;
         }
-
-
     }
 }
