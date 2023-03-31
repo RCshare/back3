@@ -9,9 +9,10 @@
         <version>3.0.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.example</groupId>
-    <artifactId>back3</artifactId>
+    <groupId>rc.personal</groupId>
+    <artifactId>service-method</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>service-method</name>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

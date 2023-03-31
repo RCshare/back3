@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b5ff347-e810-4dd8-b292-e9898c061fa5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/ServiceTestFeign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/auth/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/repository/TokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/repository/TokenRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodExtractorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rc/personal/app/service/MethodExtractorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +62,7 @@
       <recent name="rc.personal.app.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.method-service(1)">
+  <component name="RunManager" selected="Maven.service-method [package]">
     <configuration name="method-service(1)" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="rc.personal.app.Main" />
       <module name="back3" />
@@ -84,18 +79,45 @@
     </configuration>
     <configuration name="method-service(2)" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="rc.personal.app.Main" />
-      <module name="back3" />
+      <module name="service-method" />
       <option name="VM_PARAMETERS" value="-Dserver.port=8000" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="service-method [package]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.method-service(2)" />
       <item itemvalue="Application.method-service(1)" />
+      <item itemvalue="Maven.service-method [package]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Maven.service-method [package]" />
         <item itemvalue="Application.method-service(1)" />
       </list>
     </recent_temporary>
